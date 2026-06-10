@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taneja Cloth House — Meta Ads Audit Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0C0C0C;--ink2:#121212;--ink3:#1A1A1A;--ink4:#222;
+  --rule:#2A2A2A;--rule2:#333;
+  --muted:#555;--mid:#888;--light:#B8B8B0;
+  --white:#FFF;--off:#F5F3EF;
+  --coral:#E8714A;--coral-l:#F0977B;--coral-d:#C45733;--coral-bg:#2A1208;
+  --green:#3DB87A;--green-bg:#0A2018;
+  --red:#E85454;--red-bg:#2A0808;
+  --amber:#F0A835;--amber-bg:#281A04;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--white);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(12,12,12,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:62px}
+.nav-brand{font-family:var(--serif);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--white);text-decoration:none}
+.nav-brand span{color:var(--coral)}
+.nav-meta{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.nav-pill{background:var(--coral);color:var(--white);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:2px}
+@media(max-width:700px){.nav-meta{display:none}}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:88vh;border-bottom:1px solid var(--rule)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.hero-l{padding:72px 48px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:28px}
+.hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,82px);font-weight:900;line-height:.93;letter-spacing:-.02em}
+.hero-title em{font-style:normal;color:var(--coral)}
+.hero-desc{font-size:14px;font-weight:300;color:var(--light);max-width:460px;margin-top:28px;line-height:1.85}
+.score-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);margin-top:56px;border:1px solid var(--rule)}
+.score-cell{background:var(--ink2);padding:22px 20px}
+.score-n{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.score-l{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.score-good{color:var(--green)}
+.score-warn{color:var(--amber)}
+.score-bad{color:var(--red)}
+
+.hero-r{background:var(--ink2);padding:72px 48px;display:flex;flex-direction:column;gap:0;position:relative;overflow:hidden}
+.hero-r::before{content:'AUDIT';position:absolute;bottom:-20px;right:-10px;font-family:var(--serif);font-size:160px;font-weight:900;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
+.acc-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:24px}
+.acc-row{display:flex;gap:16px;border-top:1px solid var(--rule);padding:14px 0}
+.acc-row:last-child{border-bottom:1px solid var(--rule)}
+.acc-k{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:140px;padding-top:2px;flex-shrink:0}
+.acc-v{font-size:13.5px;font-weight:500;color:var(--white);line-height:1.5}
+.acc-v.good{color:var(--green)}
+.acc-v.warn{color:var(--amber)}
+.acc-v.bad{color:var(--red)}
+
+/* SECTION */
+.sec{border-bottom:1px solid var(--rule)}
+.sec-hdr{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--rule)}
+@media(max-width:700px){.sec-hdr{grid-template-columns:80px 1fr}}
+.sec-num-box{padding:36px 28px;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center}
+.sec-num-big{font-family:var(--serif);font-size:58px;font-weight:900;color:var(--rule2);line-height:1}
+.sec-num-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-top:4px}
+.sec-ttl-wrap{padding:36px 48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.sec-ttl{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.15}
+.sec-ttl em{font-style:normal;color:var(--coral)}
+.status-pill{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:2px}
+.pill-bad{background:var(--red-bg);color:var(--red);border:1px solid var(--red)}
+.pill-warn{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber)}
+.pill-good{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
+.sec-body{padding:48px}
+@media(max-width:700px){.sec-body{padding:24px}}
+
+/* AUDIT ITEMS */
+.audit-list{display:flex;flex-direction:column;gap:2px;background:var(--rule);border:1px solid var(--rule);margin-bottom:28px}
+.audit-item{display:grid;grid-template-columns:52px 1fr auto;align-items:stretch;background:var(--ink2)}
+.audit-icon{display:flex;align-items:center;justify-content:center;font-size:18px;border-right:1px solid var(--rule);padding:20px 0;background:var(--ink3)}
+.audit-content{padding:18px 24px}
+.audit-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;line-height:1.3}
+.audit-desc{font-size:13px;color:var(--light);line-height:1.65}
+.audit-fix{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:20px 20px 20px 0;color:var(--muted);white-space:nowrap;display:flex;align-items:center}
+.fix-good{color:var(--green)}
+.fix-warn{color:var(--amber)}
+.fix-bad{color:var(--red)}
+
+/* BETTER TABLE */
+.vs-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);font-size:13.5px;margin-bottom:28px}
+.vs-table thead{background:var(--ink3)}
+.vs-table thead th{padding:14px 18px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-right:1px solid var(--rule)}
+.vs-table thead th:first-child{color:var(--red)}
+.vs-table thead th:nth-child(2){color:var(--green)}
+.vs-table thead th:last-child{color:var(--coral);border-right:none}
+.vs-table tbody tr{border-top:1px solid var(--rule)}
+.vs-table tbody tr:nth-child(even){background:var(--ink2)}
+.vs-table tbody tr:nth-child(odd){background:var(--ink)}
+.vs-table td{padding:16px 18px;color:var(--light);border-right:1px solid var(--rule);vertical-align:top;line-height:1.6}
+.vs-table td:last-child{border-right:none}
+.vs-table td.now{color:#ff8a8a}
+.vs-table td.better{color:#7de0a8}
+.vs-table td.result{color:var(--coral);font-weight:600}
+
+/* AUDIENCE CARDS */
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:28px}
+@media(max-width:800px){.aud-grid{grid-template-columns:1fr}}
+.aud-card{background:var(--ink2);padding:28px}
+.aud-badge{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:3px 10px;border-radius:2px;display:inline-block;margin-bottom:14px}
+.badge-ca{background:var(--coral-bg);color:var(--coral);border:1px solid var(--coral-d)}
+.badge-lal{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
+.badge-int{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber)}
+.aud-name{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3}
+.aud-list{list-style:none;padding:0;margin:0}
+.aud-list li{font-size:13px;color:var(--light);padding:4px 0 4px 16px;position:relative;line-height:1.5}
+.aud-list li::before{content:'▸';position:absolute;left:0;color:var(--coral);font-size:9px;top:7px}
+
+/* LOCATION TABLE */
+.loc-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);font-size:13.5px;margin-bottom:28px}
+.loc-table thead{background:var(--coral)}
+.loc-table thead th{padding:13px 18px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--white);font-weight:500;border-right:1px solid rgba(255,255,255,.18)}
+.loc-table thead th:last-child{border-right:none}
+.loc-table tbody tr{border-top:1px solid var(--rule)}
+.loc-table tbody tr:nth-child(even){background:var(--ink2)}
+.loc-table tbody tr:nth-child(odd){background:var(--ink)}
+.loc-table td{padding:16px 18px;color:var(--light);border-right:1px solid var(--rule);vertical-align:top;line-height:1.6}
+.loc-table td:last-child{border-right:none}
+.loc-table td:first-child{color:var(--white);font-weight:600}
+.tier-1{color:var(--green)!important}
+.tier-2{color:var(--amber)!important}
+.tier-3{color:var(--red)!important}
+
+/* PURCHASE LIST TABLE */
+.upload-steps{display:flex;flex-direction:column}
+.upload-step{display:grid;grid-template-columns:60px 1fr;border:1px solid var(--rule);border-top:none}
+.upload-step:first-child{border-top:1px solid var(--rule)}
+.upload-step-num{background:var(--coral);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;font-weight:700;color:var(--white);border-right:1px solid var(--rule)}
+.upload-step-content{padding:20px 28px;background:var(--ink2)}
+.upload-step-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.upload-step-desc{font-size:13px;color:var(--light);line-height:1.65}
+
+/* COLUMNS */
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
+@media(max-width:700px){.col2{grid-template-columns:1fr}}
+.info-card{background:var(--ink2);border:1px solid var(--rule);padding:28px}
+.ic-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
+.ic-val{font-size:14px;color:var(--white);line-height:1.7}
+.ic-val ul{list-style:none;padding:0}
+.ic-val ul li{padding:4px 0 4px 16px;position:relative;color:var(--light);font-size:13.5px}
+.ic-val ul li::before{content:'▸';position:absolute;left:0;color:var(--coral);font-size:9px;top:7px}
+
+/* HIGHLIGHT BOX */
+.highlight{background:var(--coral-bg);border:1px solid var(--coral-d);border-radius:3px;padding:24px 28px;margin-bottom:28px}
+.highlight-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+.highlight p{font-size:14px;color:var(--off);line-height:1.8}
+
+/* METRICS ROW */
+.metrics-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:28px}
+@media(max-width:900px){.metrics-row{grid-template-columns:repeat(3,1fr)}}
+.metric-cell{background:var(--ink2);padding:22px 18px}
+.metric-n{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1}
+.metric-l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.metric-note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+
+/* FOOTER */
+footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items:end;border-top:1px solid var(--rule)}
+@media(max-width:700px){footer{grid-template-columns:1fr;gap:24px}}
+.footer-brand{font-family:var(--serif);font-size:32px;font-weight:900;line-height:1}
+.footer-brand span{color:var(--coral)}
+.footer-sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.footer-r{text-align:right}
+.footer-r p{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.05em;line-height:2.1}
+.footer-r a{color:var(--coral);text-decoration:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--rule2);border-radius:3px}
+
+.tag{display:inline-block;background:var(--rule);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-l);padding:2px 8px;border-radius:2px;margin:2px 2px 0 0}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://brilliantmadness.in" target="_blank">Brilliant<span>Madness</span></a>
+  <span class="nav-meta">Taneja Cloth House × Meta Ads Audit</span>
+  <span class="nav-pill">Confidential</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <div>
+      <p class="eyebrow">Meta Ads Audit Report — June 2026</p>
+      <h1 class="hero-title">Good<br>Results.<br><em>Better<br>Possible.</em></h1>
+      <p class="hero-desc">Taneja Cloth House is generating real purchases at a solid ROAS — but the account is running on broad targeting, no Custom Audiences, no Lookalikes, and untargeted geographies that are diluting spend. This report shows exactly what's holding performance back and what Brilliant Madness will do to fix it.</p>
+    </div>
+    <div class="score-bar">
+      <div class="score-cell"><div class="score-n score-good">22</div><div class="score-l">Campaigns Run</div></div>
+      <div class="score-cell"><div class="score-n score-good">~10x</div><div class="score-l">Avg ROAS Seen</div></div>
+      <div class="score-cell"><div class="score-n score-bad">0</div><div class="score-l">Custom Audiences</div></div>
+      <div class="score-cell"><div class="score-n score-bad">0</div><div class="score-l">Lookalike Audiences</div></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <p class="acc-label">Account Snapshot — Taneja Cloth House</p>
+    <div class="acc-row"><span class="acc-k">Brand</span><span class="acc-v">Taneja Cloth House</span></div>
+    <div class="acc-row"><span class="acc-k">Since</span><span class="acc-v">1988 — 36 years in ethnic women's wear</span></div>
+    <div class="acc-row"><span class="acc-k">Instagram</span><span class="acc-v good">201k followers · 7,589 posts</span></div>
+    <div class="acc-row"><span class="acc-k">Website</span><span class="acc-v">tanejaclothhouse.com (Nushop)</span></div>
+    <div class="acc-row"><span class="acc-k">Product Range</span><span class="acc-v">Unstitched Suits · Kurta Sets · Coord Sets · Ethnic Wear</span></div>
+    <div class="acc-row"><span class="acc-k">Price Range</span><span class="acc-v">₹750 – ₹10,600 (heavy discounting up to 67% off)</span></div>
+    <div class="acc-row"><span class="acc-k">Top Campaign ROAS</span><span class="acc-v good">14.84x (AI Video HR campaign)</span></div>
+    <div class="acc-row"><span class="acc-k">Lowest CPP Seen</span><span class="acc-v good">₹83.29 per purchase</span></div>
+    <div class="acc-row"><span class="acc-k">Current Gap</span><span class="acc-v bad">No CA / LAL / Rich Location / Purchase List targeting</span></div>
+  </div>
+</section>
+
+<!-- SECTION 01 — CURRENT ADS PERFORMANCE -->
+<section class="sec">
+  <div class="sec-hdr">
+    <div class="sec-num-box"><div class="sec-num-big">01</div><div class="sec-num-lbl">Performance</div></div>
+    <div class="sec-ttl-wrap">
+      <h2 class="sec-ttl">Current Ads<br><em>Performance Analysis</em></h2>
+      <span class="status-pill pill-warn">Good — But Improvable</span>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="highlight">
+      <div class="highlight-lbl">What the Data Says</div>
+      <p>The account has generated <strong style="color:var(--coral)">5,155+ purchases</strong> across 22 campaigns with ROAS ranging from 7.66x to 14.84x. That's genuinely solid performance — but every single campaign is running on <strong style="color:var(--coral)">broad interest targeting with no Custom Audiences, no Lookalikes, no purchase data upload, and no geographic intelligence.</strong> The account is performing despite its setup, not because of it. With the right architecture, ROAS of 20x+ is realistic.</p>
+    </div>
+    <div class="metrics-row">
+      <div class="metric-cell"><div class="metric-n score-good">2,077</div><div class="metric-l">Best Campaign Purchases</div><div class="metric-note">25 IB Women campaign · ₹99.27 CPP</div></div>
+      <div class="metric-cell"><div class="metric-n score-good">₹83</div><div class="metric-l">Lowest Cost per Purchase</div><div class="metric-note">CPP goal-40 campaign</div></div>
+      <div class="metric-cell"><div class="metric-n score-good">14.84x</div><div class="metric-l">Highest ROAS</div><div class="metric-note">AI Video HR campaign</div></div>
+      <div class="metric-cell"><div class="metric-n score-bad">7.66x</div><div class="metric-l">Lowest ROAS</div><div class="metric-note">Seller suggested product</div></div>
+      <div class="metric-cell"><div class="metric-n score-warn">₹99–₹137</div><div class="metric-l">CPP Range</div><div class="metric-note">Should be ₹60–₹80 with proper setup</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:28px">Top 5 campaigns by purchase volume from the account:</p>
+    <table class="loc-table">
+      <thead><tr><th>Campaign</th><th>Purchases</th><th>ROAS</th><th>CPP</th><th>Budget</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>25+ IB Women | All Products</td><td class="tier-1">2,077</td><td>11.49x</td><td>₹99.27</td><td>₹1,000/day</td><td><span class="tag">Scale</span></td></tr>
+        <tr><td>New Convo | Women 23+</td><td>523</td><td>10.63x</td><td>₹119.39</td><td>₹1,000/day</td><td><span class="tag">Optimise</span></td></tr>
+        <tr><td>AI Video HR | Women 23+</td><td class="tier-1">460</td><td class="tier-1">14.84x</td><td class="tier-1">₹58.34</td><td>₹2,000/day</td><td><span class="tag">Best Performer — Scale</span></td></tr>
+        <tr><td>AI Video HRSim | Women 24+</td><td>447</td><td>7.87x</td><td>₹105.41</td><td>₹750/day</td><td><span class="tag">Review Creative</span></td></tr>
+        <tr><td>Video Camp. Women 23+</td><td>332</td><td>10.64x</td><td>₹119.61</td><td>₹1,500/day</td><td><span class="tag">Optimise</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 02 — AUDIT ISSUES -->
+<section class="sec">
+  <div class="sec-hdr">
+    <div class="sec-num-box"><div class="sec-num-big">02</div><div class="sec-num-lbl">Audit</div></div>
+    <div class="sec-ttl-wrap">
+      <h2 class="sec-ttl">What's<br><em>Holding You Back</em></h2>
+      <span class="status-pill pill-bad">8 Critical Gaps Found</span>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="audit-list">
+      <div class="audit-item">
+        <div class="audit-icon">🚫</div>
+        <div class="audit-content">
+          <div class="audit-title">No Custom Audiences — Zero Retargeting</div>
+          <div class="audit-desc">Every campaign is targeting cold audiences from scratch. There are no website visitor audiences, no video viewer audiences, no past purchaser audiences, and no cart abandoner audiences being retargeted. This means you are paying full cold CPP for buyers who already know the brand and just need a nudge — the most expensive and least efficient way to run ads.</div>
+        </div>
+        <div class="audit-fix fix-bad">Critical Fix</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">🚫</div>
+        <div class="audit-content">
+          <div class="audit-title">No Lookalike Audiences Built</div>
+          <div class="audit-desc">With 5,000+ purchases on record, Taneja has an extremely valuable dataset for building 1–3% Lookalike Audiences of buyers. A Lookalike of past purchasers finds people on Meta who share the same behaviour, demographics, and interest patterns as people who already bought. This consistently cuts CPP by 30–50% vs cold interest targeting. Currently this data is being completely wasted.</div>
+        </div>
+        <div class="audit-fix fix-bad">Critical Fix</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">No Purchase List Uploaded to Meta</div>
+          <div class="audit-desc">Taneja has an existing customer database — every past buyer's phone number and email can be uploaded to Meta as a Customer List Custom Audience. This enables: (1) direct remarketing to past buyers for new arrivals and offers, and (2) building a Lookalike Audience from verified purchasers, which is the highest-quality seed audience possible for Lookalike campaigns.</div>
+        </div>
+        <div class="audit-fix fix-bad">Critical Fix</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">No Geographic Intelligence — Spending Everywhere Equally</div>
+          <div class="audit-desc">All campaigns appear to target broadly without differentiating between high-purchasing cities and low-converting areas. Women with higher disposable income in Tier 1 cities (Delhi NCR, Mumbai, Bengaluru, Hyderabad, Pune, Chennai) have a significantly higher AOV and lower return rate for ethnic wear. There is no geographic bid adjustment or location exclusion happening currently.</div>
+        </div>
+        <div class="audit-fix fix-warn">High Priority</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">All 22 Campaigns are OFF — No Always-On Campaign</div>
+          <div class="audit-desc">Every single campaign in the account is currently turned off. There is no always-on evergreen campaign maintaining pixel data collection, keeping the account warm, and capturing daily demand. When campaigns are repeatedly turned on and off, the algorithm loses its learning and has to restart from scratch every time — resulting in higher CPP during the re-learning phase.</div>
+        </div>
+        <div class="audit-fix fix-bad">Critical Fix</div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">Website Has Conversion Rate Issues</div>
+          <div class="audit-desc">The website (tanejaclothhouse.com) uses a Nushop builder — the banner images load as "BANNER_undefined__undefined" in the source code, meaning banner alt text and structured data are missing. The "50% Off" countdown timer is always running (it resets), which erodes trust with repeat visitors. No trust badges or payment icons are visible above the fold. All these reduce add-to-cart and checkout conversion rates.</div>
+        </div>
+        <div class="audit-fix fix-warn">High Priority</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">Instagram Has 201k Followers — Not Being Retargeted</div>
+          <div class="audit-desc">201,000 Instagram followers who engage with Taneja content are a massive warm audience — people who already love the brand and its products. None of them are being retargeted with ads. An Instagram Engager Custom Audience (people who liked, saved, commented, or DM'd) would have a CPP 40–60% lower than cold traffic because they already have brand affinity.</div>
+        </div>
+        <div class="audit-fix fix-warn">High Priority</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03 — WHAT WE DO BETTER -->
+<section class="sec">
+  <div class="sec-hdr">
+    <div class="sec-num-box"><div class="sec-num-big">03</div><div class="sec-num-lbl">Our Approach</div></div>
+    <div class="sec-ttl-wrap">
+      <h2 class="sec-ttl">What Brilliant Madness<br><em>Does Better</em></h2>
+      <span class="status-pill pill-good">Full Funnel Architecture</span>
+    </div>
+  </div>
+  <div class="sec-body">
+    <table class="vs-table">
+      <thead><tr><th>What's Happening Now</th><th>What We Will Do</th><th>Expected Impact</th></tr></thead>
+      <tbody>
+        <tr><td class="now">Broad interest targeting only</td><td class="better">Custom Audiences + Lookalike Audiences layered on top of interests</td><td class="result">CPP drops 30–50%</td></tr>
+        <tr><td class="now">No purchase list uploaded</td><td class="better">Upload full customer database to Meta — build LAL from verified buyers</td><td class="result">Highest-quality cold audience possible</td></tr>
+        <tr><td class="now">0 retargeting campaigns</td><td class="better">3-layer retargeting: website visitors · video viewers · cart abandoners</td><td class="result">ROAS 2–3x higher on warm audiences</td></tr>
+        <tr><td class="now">Targeting everywhere equally</td><td class="better">Prioritise Tier 1 high-income cities, exclude low-AOV geographies</td><td class="result">Higher AOV, lower return rate</td></tr>
+        <tr><td class="now">All campaigns turned off</td><td class="better">Always-on evergreen campaign keeps pixel warm and learning</td><td class="result">No restart penalty, consistent results</td></tr>
+        <tr><td class="now">Budget spread across 22 campaigns</td><td class="better">Concentrate budget on top 3 performers, pause bottom 40%</td><td class="result">More purchases from same total spend</td></tr>
+        <tr><td class="now">201k Instagram followers not retargeted</td><td class="better">Instagram Engager Custom Audience in BOFU campaign</td><td class="result">CPP 40–60% lower than cold traffic</td></tr>
+        <tr><td class="now">No campaign naming convention</td><td class="better">Structured naming: Brand | Format | Audience | Date — easy to audit</td><td class="result">Faster optimisation, no confusion</td></tr>
+        <tr><td class="now">ROAS varies 7x to 14x with no action taken</td><td class="better">Weekly optimisation — scale winners, pause losers within 7 days</td><td class="result">Floor ROAS rises consistently</td></tr>
+        <tr><td class="now">No A/B testing framework</td><td class="better">Structured creative A/B testing — 2 creatives per ad set, rotate every 2 weeks</td><td class="result">CTR improves, CPP falls over time</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 04 — CUSTOM & LOOKALIKE AUDIENCES -->
+<section class="sec">
+  <div class="sec-hdr">
+    <div class="sec-num-box"><div class="sec-num-big">04</div><div class="sec-num-lbl">Audiences</div></div>
+    <div class="sec-ttl-wrap">
+      <h2 class="sec-ttl">Custom Audiences &amp;<br><em>Lookalike Strategy</em></h2>
+      <span class="status-pill pill-bad">Currently Zero — Must Build</span>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p style="font-size:14px;color:var(--muted);margin-bottom:28px;max-width:580px">These are the audiences we will build immediately after onboarding. Custom Audiences target people who already know Taneja. Lookalikes find new buyers who match the same profile as existing ones.</p>
+    <div class="aud-grid">
+      <div class="aud-card">
+        <div class="aud-badge badge-ca">Custom Audience</div>
+        <div class="aud-name">Website Visitors</div>
+        <ul class="aud-list"><li>All visitors — last 30 days</li><li>Product page viewers — last 14 days</li><li>Add-to-cart but no purchase — last 7 days</li><li>Checkout initiated but abandoned — last 7 days</li><li>Past purchasers — last 180 days</li></ul>
+      </div>
+      <div class="aud-card">
+        <div class="aud-badge badge-ca">Custom Audience</div>
+        <div class="aud-name">Instagram &amp; Facebook Engagers</div>
+        <ul class="aud-list"><li>Anyone who engaged with Instagram profile — 60 days</li><li>Video viewers 25%+ — 60 days</li><li>Video viewers 75%+ — 90 days</li><li>People who DM'd the page — 30 days</li><li>Facebook page engagers — 60 days</li></ul>
+      </div>
+      <div class="aud-card">
+        <div class="aud-badge badge-ca">Custom Audience</div>
+        <div class="aud-name">Customer List Upload</div>
+        <ul class="aud-list"><li>Upload full past purchaser database</li><li>Match by phone number + email</li><li>Target for: New arrivals, repeat purchase campaigns</li><li>Exclude from cold campaigns to avoid waste</li><li>Use as seed for Lookalike Audience</li></ul>
+      </div>
+      <div class="aud-card">
+        <div class="aud-badge badge-lal">Lookalike Audience</div>
+        <div class="aud-name">LAL — Past Purchasers (1%)</div>
+        <ul class="aud-list"><li>Seed: Customer List of verified buyers</li><li>1% Lookalike = closest match, smallest size</li><li>Highest purchase intent of any cold audience</li><li>Expected CPP: 30–40% lower than interest targeting</li><li>Layer with rich location targeting for best results</li></ul>
+      </div>
+      <div class="aud-card">
+        <div class="aud-badge badge-lal">Lookalike Audience</div>
+        <div class="aud-name">LAL — Website Purchasers (1–2%)</div>
+        <ul class="aud-list"><li>Seed: Pixel purchase events — last 180 days</li><li>Builds automatically as pixel collects more data</li><li>Use in MOFU campaigns at ₹400–500/day</li><li>Expand to 2–3% for scale once 1% is proven</li></ul>
+      </div>
+      <div class="aud-card">
+        <div class="aud-badge badge-lal">Lookalike Audience</div>
+        <div class="aud-name">LAL — High-Value Buyers (1%)</div>
+        <ul class="aud-list"><li>Seed: Purchasers with AOV above ₹2,000</li><li>Finds people likely to buy premium products</li><li>Use for Premium Chanderi, Handloom campaigns</li><li>Layer with Tier 1 city targeting</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 05 — WEBSITE AUDIT -->
+<section class="sec">
+  <div class="sec-hdr">
+    <div class="sec-num-box"><div class="sec-num-big">05</div><div class="sec-num-lbl">Website</div></div>
+    <div class="sec-ttl-wrap">
+      <h2 class="sec-ttl">Website Conversion<br><em>Audit</em></h2>
+      <span class="status-pill pill-warn">5 Issues Found</span>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="audit-list">
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">Fake Countdown Timer — Resets Every Time</div>
+          <div class="audit-desc">The "50% Off — 00H:26M:22S" countdown timer is not linked to a real end time. It resets on every page load. Customers who visit twice in the same day will see the same countdown — eroding trust and making the urgency feel dishonest. This is one of the fastest ways to lose a return visitor. Replace with real limited-time offers with genuine deadlines.</div>
+        </div>
+        <div class="audit-fix fix-bad">Fix Now</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">Banner Images Have No Alt Text — SEO &amp; Accessibility Loss</div>
+          <div class="audit-desc">Every homepage banner loads as "BANNER_undefined__undefined" in the source code — meaning alt text is missing entirely. This hurts Google Image Search rankings (a significant traffic driver for fashion brands), and fails accessibility standards. Each banner should have descriptive alt text: "Pure Cotton Suit Set — Shop Ethnic Wear for Women."</div>
+        </div>
+        <div class="audit-fix fix-warn">SEO Fix</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">No Trust Signals Above the Fold</div>
+          <div class="audit-desc">First-time visitors from ads have no immediate reason to trust the website before scrolling. There are no visible: payment badges (Razorpay, UPI, COD available), delivery promises ("Free shipping on all orders"), return policy callout, or review/rating count. For a brand targeting customers who have never bought from Taneja before, this is a significant conversion barrier.</div>
+        </div>
+        <div class="audit-fix fix-warn">CRO Fix</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">Discount Presentation May Train Customers to Wait</div>
+          <div class="audit-desc">Products are shown with 55%–67% discounts by default at all times. While discounts drive impulse purchases, running permanent deep discounts trains returning customers to always expect them, reducing full-price purchase behaviour and making the "original price" feel fictional. Consider segmenting: show urgency discounts only for specific campaigns, not as the site's default state.</div>
+        </div>
+        <div class="audit-fix fix-warn">Strategy Fix</div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-icon">⚠️</div>
+        <div class="audit-content">
+          <div class="audit-title">Google Analytics &amp; Pixel Events Not Verified</div>
+          <div class="audit-desc">The site has a Facebook Pixel (ID: 907179631835692) installed but there is no visible confirmation that purchase, add-to-cart, and initiate-checkout events are firing correctly. If the pixel is misfiring, Meta is not getting accurate purchase signals — meaning campaign optimisation is flying blind. A pixel health check using Meta Events Manager should be the first technical action.</div>
+        </div>
+        <div class="audit-fix fix-bad">Critical Check</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06 — INSTAGRAM AUDIT -->
+<section class="sec">
+  <div class="sec-hdr">
+    <div class="sec-num-box"><div class="sec-num-big">06</div><div class="sec-num-lbl">Instagram</div></div>
+    <div class="sec-ttl-wrap">
+      <h2 class="sec-ttl">Instagram<br><em>Audit</em></h2>
+      <span class="status-pill pill-good">Strong — Underutilised in Ads</span>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="highlight">
+      <div class="highlight-lbl">The Big Opportunity</div>
+      <p>201,000 Instagram followers who regularly watch Taneja's content are a <strong style="color:var(--coral)">pre-warmed buyer audience that is currently receiving zero paid attention.</strong> People who have watched product videos, saved posts, and sent DMs are the highest-converting audience segment available to Taneja — and they are not being retargeted with a single ad. This is the fastest win available.</p>
+    </div>
+    <div class="col2">
+      <div class="info-card">
+        <div class="ic-lbl">What's Working Well</div>
+        <div class="ic-val"><ul><li>201k followers — substantial organic reach</li><li>7,589 posts — strong content volume and consistency</li><li>Product showcase style is clear and effective</li><li>Multiple highlight reels (Reviews, Happy Customers)</li><li>Regular posting cadence driving new product discovery</li><li>Since 1988 — strong brand longevity story to leverage</li></ul></div>
+      </div>
+      <div class="info-card">
+        <div class="ic-lbl">What We Will Improve with Ads</div>
+        <div class="ic-val"><ul><li>Build Instagram Engager Custom Audience (60 days)</li><li>Build Video Viewer audience (25%+) for retargeting</li><li>Run Instagram Stories ads to follower-adjacent audiences</li><li>Use Reels as top-of-funnel awareness ads (existing content)</li><li>A/B test: organic-style Reel vs professional product video</li><li>Click-to-WhatsApp ads for direct purchase conversations</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 07 — CAMPAIGN STRUCTURE WE PROPOSE -->
+<section class="sec">
+  <div class="sec-hdr">
+    <div class="sec-num-box"><div class="sec-num-big">07</div><div class="sec-num-lbl">Our Plan</div></div>
+    <div class="sec-ttl-wrap">
+      <h2 class="sec-ttl">Campaign Structure<br><em>Brilliant Madness Will Build</em></h2>
+      <span class="status-pill pill-good">Full Funnel — 4 Campaigns</span>
+    </div>
+  </div>
+  <div class="sec-body">
+    <table class="loc-table">
+      <thead><tr><th>Campaign</th><th>Funnel Stage</th><th>Audience</th><th>Geography</th><th>Daily Budget</th><th>Objective</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Campaign 1</strong><br>Lookalike Cold Traffic</td><td>TOFU</td><td>1% LAL — Past Purchasers + 1% LAL — Pixel Buyers</td><td>Delhi NCR, Mumbai, Bengaluru, Hyderabad, Pune</td><td>₹600–800</td><td>Purchase</td></tr>
+        <tr><td><strong>Campaign 2</strong><br>Interest + Rich Location</td><td>TOFU/MOFU</td><td>Women 23–50 · Ethnic wear · Fashion interests layered with income signals</td><td>Tier 1 cities only</td><td>₹400–600</td><td>Purchase</td></tr>
+        <tr><td><strong>Campaign 3</strong><br>Instagram Warm Retargeting</td><td>MOFU</td><td>IG Engagers (60d) + Video Viewers (25%+, 90d) + Website Visitors (30d)</td><td>Pan India</td><td>₹300–400</td><td>Purchase / Add to Cart</td></tr>
+        <tr><td><strong>Campaign 4</strong><br>Hot Retargeting + Customer List</td><td>BOFU</td><td>Add-to-cart abandoners (7d) + Checkout abandoners (7d) + Past buyers (new arrivals)</td><td>Pan India</td><td>₹200–300</td><td>Purchase</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px">Total: ₹1,500–2,100/day structured across a proper 4-stage funnel vs the current single-stage broad targeting approach.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Brilliant<span>Madness</span></div>
+    <div class="footer-sub">One Stop Solution to all Start-Up Needs</div>
+  </div>
+  <div class="footer-r">
+    <p>Prepared for Taneja Cloth House · June 2026</p>
+    <p>Confidential · <a href="mailto:simran@brilliantmadness.in">simran@brilliantmadness.in</a></p>
+    <p><a href="https://brilliantmadness.in" target="_blank">brilliantmadness.in</a> · Hyderabad, India</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Kailash Paper — Digital Ads Strategy 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; color: #1A202C; background: #fff; font-size: 12.5px; line-height: 1.6; }
+
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(145deg, #0D2B6E 0%, #1A3C8F 60%, #2E5AAC 100%);
+    color: white; padding: 64px 60px 50px;
+    min-height: 100vh; display: flex;
+    flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%; background: rgba(255,255,255,0.04);
+  }
+  .cover-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12); color: #A8C4F0;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
+  }
+  .cover h1 { font-size: 44px; font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 6px; }
+  .cover h1 span { color: #E8C97A; }
+  .cover-sub { font-size: 15px; color: #A8C4F0; margin-bottom: 36px; }
+  .cover-divider { width: 50px; height: 4px; background: #E8611A; border-radius: 2px; margin-bottom: 28px; }
+  .cover-client-label { font-size: 11px; color: #7A9CC4; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+  .cover-client { font-size: 20px; font-weight: 700; color: white; margin-bottom: 36px; }
+
+  .funnel { display: flex; gap: 4px; border-radius: 10px; overflow: hidden; margin-bottom: 36px; }
+  .funnel-step { flex: 1; padding: 18px 12px; text-align: center; }
+  .f1 { background: rgba(255,255,255,0.08); }
+  .f2 { background: rgba(255,255,255,0.13); }
+  .f3 { background: rgba(255,255,255,0.18); }
+  .f-label { font-size: 9px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+  .f-phase { font-size: 12px; font-weight: 700; color: white; margin-bottom: 2px; }
+  .f-budget { font-size: 22px; font-weight: 900; color: #E8C97A; }
+  .f-days { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+  .f-arrow { display: flex; align-items: center; color: rgba(255,255,255,0.3); font-size: 20px; }
+
+  .cover-stats { display: flex; gap: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .stat-val { font-size: 20px; font-weight: 800; color: #E8C97A; }
+  .stat-label { font-size: 10px; color: #7A9CC4; margin-top: 1px; }
+  .cover-footer {
+    display: flex; justify-content: space-between;
+    font-size: 10px; color: #5A7BA8;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 14px; margin-top: 28px;
+  }
+
+  /* CONTENT */
+  .content { padding: 40px 50px; }
+  .pg-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 10px; border-bottom: 2px solid #E2E8F0;
+    margin-bottom: 26px; font-size: 10px; color: #999;
+  }
+  .pg-header-logo { font-weight: 700; color: #1A3C8F; font-size: 11px; }
+
+  .sec-title {
+    background: linear-gradient(90deg, #0D2B6E, #1A3C8F);
+    color: white; font-size: 13px; font-weight: 800;
+    padding: 11px 18px; border-radius: 6px 6px 0 0;
+    letter-spacing: 0.3px; text-transform: uppercase;
+  }
+  .sec-body {
+    border: 1px solid #E2E8F0; border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 16px 16px 12px;
+    background: #FAFBFD; margin-bottom: 20px;
+  }
+
+  /* PHASE CARDS */
+  .phase-row { display: flex; gap: 12px; margin-bottom: 20px; }
+  .phase-card { flex: 1; border-radius: 8px; padding: 15px 13px; border: 1px solid #E2E8F0; background: white; }
+  .phase-card.p1 { border-top: 4px solid #0D2B6E; }
+  .phase-card.p2 { border-top: 4px solid #E8611A; }
+  .phase-card.p3 { border-top: 4px solid #1E6B3A; }
+  .pc-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .pc-phase { font-size: 13px; font-weight: 800; color: #1A202C; margin-bottom: 10px; }
+  .pc-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .pc-key { font-size: 10px; color: #718096; }
+  .pc-val { font-size: 10px; font-weight: 600; color: #1A3C8F; }
+  .pc-divider { border: none; border-top: 1px solid #E2E8F0; margin: 8px 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-bottom: 16px; }
+  thead tr { background: #1A3C8F; color: white; }
+  thead th { padding: 9px 12px; text-align: left; font-size: 10px; font-weight: 600; letter-spacing: 0.3px; }
+  tbody tr:nth-child(even) { background: #F5F7FA; }
+  tbody tr:nth-child(odd) { background: white; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #EDF2F7; color: #2D3748; vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  .total-row td { background: #0D2B6E !important; color: white !important; font-weight: 700; }
+  .hl { font-weight: 600; color: #1A3C8F; }
+  .ac { color: #E8611A; font-weight: 600; }
+  .gr { color: #1E6B3A; font-weight: 600; }
+
+  .info-box {
+    background: #EFF4FF; border-left: 4px solid #1A3C8F;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px; margin-bottom: 16px;
+    font-size: 12px; color: #4A5568;
+  }
+  .info-box strong { color: #1A3C8F; }
+
+  /* Lead form steps */
+  .lf-flow { display: flex; gap: 0; margin-bottom: 16px; }
+  .lf-step {
+    flex: 1; background: white; border: 1px solid #E2E8F0;
+    border-top: 3px solid #1A3C8F;
+    border-radius: 0 0 6px 6px;
+    padding: 10px 8px; text-align: center;
+  }
+  .lf-num { font-size: 16px; font-weight: 900; color: #1A3C8F; margin-bottom: 3px; }
+  .lf-label { font-size: 10px; font-weight: 700; color: #2D3748; margin-bottom: 3px; }
+  .lf-desc { font-size: 9px; color: #718096; line-height: 1.4; }
+  .lf-arrow { display: flex; align-items: center; color: #CBD5E0; font-size: 18px; padding: 0 3px; }
+
+  /* Landing page checklist */
+  .lp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .lp-item {
+    display: flex; gap: 8px; align-items: flex-start;
+    background: white; border: 1px solid #E2E8F0;
+    border-radius: 6px; padding: 9px 11px; font-size: 11px;
+  }
+  .lp-check { color: #1A3C8F; font-weight: 900; font-size: 13px; flex-shrink: 0; }
+  .lp-text { color: #2D3748; line-height: 1.4; }
+  .lp-text strong { color: #1A3C8F; display: block; font-size: 10px; }
+
+  .rec-list { list-style: none; }
+  .rec-list li { display: flex; gap: 12px; padding: 8px 12px; border-bottom: 1px solid #EDF2F7; align-items: flex-start; font-size: 12px; color: #2D3748; }
+  .rec-list li:last-child { border-bottom: none; }
+  .rec-num {
+    background: #1A3C8F; color: white;
+    font-size: 10px; font-weight: 800;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+  .pg-footer { text-align: center; font-size: 10px; color: #999; border-top: 1px solid #E2E8F0; padding-top: 14px; margin-top: 22px; }
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover page">
+  <div>
+    <div class="cover-tag">Confidential Strategy Document</div>
+    <h1>Digital Advertising<br><span>Strategy Proposal</span></h1>
+    <p class="cover-sub">Meta Ads — Facebook &amp; Instagram</p>
+    <div class="cover-divider"></div>
+    <div class="cover-client-label">Prepared For</div>
+    <div class="cover-client">Kailash Paper Conversion Pvt. Ltd.</div>
+
+    <div class="funnel">
+      <div class="funnel-step f1">
+        <div class="f-label">Phase 1</div>
+        <div class="f-phase">Awareness</div>
+        <div class="f-budget">&#8377;800</div>
+        <div class="f-days">Per Day</div>
+      </div>
+      <div class="f-arrow">&#8250;</div>
+      <div class="funnel-step f2">
+        <div class="f-label">Phase 2</div>
+        <div class="f-phase">Lead Form</div>
+        <div class="f-budget">&#8377;1,000</div>
+        <div class="f-days">Testing Budget</div>
+      </div>
+      <div class="f-arrow">&#8250;</div>
+      <div class="funnel-step f3">
+        <div class="f-label">Phase 3</div>
+        <div class="f-phase">Landing Page</div>
+        <div class="f-budget">&#8377;1,000</div>
+        <div class="f-days">Per Day</div>
+      </div>
+    </div>
+
+    <div class="cover-stats">
+      <div><div class="stat-val">3 Phases</div><div class="stat-label">Strategy</div></div>
+      <div><div class="stat-val">4–5 Weeks</div><div class="stat-label">Duration</div></div>
+      <div><div class="stat-val">Lead Form</div><div class="stat-label">Phase 2 Method</div></div>
+      <div><div class="stat-val">Landing Page</div><div class="stat-label">Phase 3 Method</div></div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span>kailashpaper.com &nbsp;|&nbsp; info@kailashpaper.com &nbsp;|&nbsp; 1800 889 4101</span>
+    <span>May 2026</span>
+  </div>
+</div>
+
+<!-- ═══ STRATEGY PAGE ═══ -->
+<div class="content page">
+  <div class="pg-header">
+    <span>Kailash Paper Conversion — Digital Ads Strategy 2026</span>
+    <span class="pg-header-logo">KPC &nbsp;|&nbsp; Meta Ads Proposal</span>
+  </div>
+
+  <!-- OVERVIEW TABLE -->
+  <div class="sec-title">Campaign Overview</div>
+  <div class="sec-body">
+    <table>
+      <thead><tr><th>Phase</th><th>Type</th><th>Budget</th><th>Duration</th><th>Lead Method</th><th>Goal</th></tr></thead>
+      <tbody>
+        <tr><td class="hl">Phase 1</td><td>Brand Awareness</td><td class="ac">&#8377;800/day</td><td>7 Days</td><td>—</td><td>Build recognition in Ranchi</td></tr>
+        <tr><td class="hl">Phase 2</td><td>Lead Generation</td><td class="ac">&#8377;1,000/day</td><td>7–10 Days</td><td class="hl">Meta Lead Form</td><td>Capture qualified leads</td></tr>
+        <tr><td class="hl">Phase 3</td><td>Landing Page Leads</td><td class="ac">&#8377;1,000/day</td><td>Ongoing</td><td class="gr">Landing Page</td><td>Scale high-quality leads</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PHASE CARDS -->
+  <div class="phase-row">
+
+    <div class="phase-card p1">
+      <div class="pc-label">Phase 1 · Week 1</div>
+      <div class="pc-phase">Brand Awareness</div>
+      <div class="pc-row"><span class="pc-key">Daily Budget</span><span class="pc-val">&#8377;800/day</span></div>
+      <div class="pc-row"><span class="pc-key">Platform</span><span class="pc-val">FB + Instagram</span></div>
+      <div class="pc-row"><span class="pc-key">Format</span><span class="pc-val">Image + Reel</span></div>
+      <div class="pc-row"><span class="pc-key">Placement</span><span class="pc-val">Feed + Reels + Stories</span></div>
+      <hr class="pc-divider"/>
+      <div class="pc-row"><span class="pc-key">Location</span><span class="pc-val">Ranchi + 30km</span></div>
+      <div class="pc-row"><span class="pc-key">Age</span><span class="pc-val">25–55</span></div>
+      <div class="pc-row"><span class="pc-key">Target</span><span class="pc-val">B2B, schools, retail</span></div>
+      <hr class="pc-divider"/>
+      <div class="pc-row"><span class="pc-key">Est. Reach</span><span class="pc-val">8K–15K/week</span></div>
+      <div class="pc-row"><span class="pc-key">Impressions</span><span class="pc-val">20K–35K</span></div>
+    </div>
+
+    <div class="phase-card p2">
+      <div class="pc-label">Phase 2 · Week 2–3</div>
+      <div class="pc-phase">Meta Lead Form</div>
+      <div class="pc-row"><span class="pc-key">Daily Budget</span><span class="pc-val">&#8377;1,000/day</span></div>
+      <div class="pc-row"><span class="pc-key">Platform</span><span class="pc-val">FB + Instagram</span></div>
+      <div class="pc-row"><span class="pc-key">Format</span><span class="pc-val">Image + Instant Form</span></div>
+      <div class="pc-row"><span class="pc-key">Audience</span><span class="pc-val">Warm + Cold B2B</span></div>
+      <hr class="pc-divider"/>
+      <div class="pc-row"><span class="pc-key">Ad Set 1</span><span class="pc-val">&#8377;500 — Warm retarget</span></div>
+      <div class="pc-row"><span class="pc-key">Ad Set 2</span><span class="pc-val">&#8377;300 — Cold B2B</span></div>
+      <div class="pc-row"><span class="pc-key">Ad Set 3</span><span class="pc-val">&#8377;200 — Schools/Inst.</span></div>
+      <hr class="pc-divider"/>
+      <div class="pc-row"><span class="pc-key">Est. Leads</span><span class="pc-val">8–20 leads</span></div>
+      <div class="pc-row"><span class="pc-key">Cost Per Lead</span><span class="pc-val">&#8377;50–120</span></div>
+    </div>
+
+    <div class="phase-card p3">
+      <div class="pc-label">Phase 3 · Scale</div>
+      <div class="pc-phase">Landing Page</div>
+      <div class="pc-row"><span class="pc-key">Daily Budget</span><span class="pc-val">&#8377;1,000/day</span></div>
+      <div class="pc-row"><span class="pc-key">Platform</span><span class="pc-val">FB + Instagram</span></div>
+      <div class="pc-row"><span class="pc-key">Format</span><span class="pc-val">Image + Carousel</span></div>
+      <div class="pc-row"><span class="pc-key">Audience</span><span class="pc-val">Warm + Cold B2B</span></div>
+      <hr class="pc-divider"/>
+      <div class="pc-row"><span class="pc-key">Lead Method</span><span class="pc-val">Landing Page Form</span></div>
+      <div class="pc-row"><span class="pc-key">Conv. Rate</span><span class="pc-val">5–10%</span></div>
+      <div class="pc-row"><span class="pc-key">Est. Clicks</span><span class="pc-val">200–400/week</span></div>
+      <hr class="pc-divider"/>
+      <div class="pc-row"><span class="pc-key">Est. Leads</span><span class="pc-val">10–25/week</span></div>
+      <div class="pc-row"><span class="pc-key">Cost Per Lead</span><span class="pc-val">&#8377;40–100</span></div>
+    </div>
+
+  </div>
+
+  <!-- LEAD FORM + LANDING PAGE -->
+  <div class="two-col">
+
+    <div>
+      <div class="sec-title" style="border-radius:6px 6px 0 0;">Phase 2 — Meta Lead Form</div>
+      <div class="sec-body" style="margin-bottom:0;">
+        <div class="info-box" style="margin-bottom:12px;">
+          <strong>Form Title: "Get a Free Printing Quote"</strong><br>
+          User fills the form inside Facebook/Instagram — no website visit needed.
+        </div>
+        <table>
+          <tbody>
+            <tr><td class="hl">Field 1</td><td>Full Name</td></tr>
+            <tr><td class="hl">Field 2</td><td>Phone Number</td></tr>
+            <tr><td class="hl">Field 3</td><td>Business / Organization Name</td></tr>
+            <tr><td class="hl">Field 4</td><td>What do you need? <em style="color:#999;">(Dropdown)</em><br>
+              <span style="font-size:10px; color:#718096;">Packaging / Diaries / Brochures / Photo Books / Stationery / Other</span>
+            </td></tr>
+            <tr><td class="hl">Field 5</td><td>Quantity Needed <em style="color:#999;">(Optional)</em></td></tr>
+          </tbody>
+        </table>
+        <div style="background:#EFF4FF; border-radius:6px; padding:9px 12px; font-size:11px; color:#4A5568;">
+          <strong style="color:#1A3C8F;">Thank You Message:</strong> "Our team will call you within 24 hours with your custom quote."
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-title" style="border-radius:6px 6px 0 0; background:linear-gradient(90deg,#1E6B3A,#276749);">Phase 3 — Landing Page</div>
+      <div class="sec-body" style="margin-bottom:0;">
+        <div class="lp-grid">
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Main Headline</strong>Get a Custom Printing Quote in 24 Hours</div></div>
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Sub-headline</strong>Ranchi's #1 Printing Company Since 1987</div></div>
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Trust Signals</strong>Tata Steel, UNICEF, Reliance, Govt of Jharkhand logos</div></div>
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Services Section</strong>All services listed with visuals</div></div>
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Lead Form</strong>Name, Phone, Email, Requirement, Quantity</div></div>
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Social Proof</strong>Google 4.5 Stars + testimonials</div></div>
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Primary CTA</strong>"Get My Free Quote" — above the fold</div></div>
+          <div class="lp-item"><span class="lp-check">&#10003;</span><div class="lp-text"><strong>Mobile Ready</strong>Fast loading, fully responsive</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RECOMMENDATIONS -->
+  <div class="sec-title">Key Recommendations</div>
+  <div class="sec-body">
+    <ul class="rec-list">
+      <li><div class="rec-num">01</div><span>Run <strong>Phase 1 fully before Phase 2</strong> — warm audiences convert 3x better than cold audiences.</span></li>
+      <li><div class="rec-num">02</div><span>Use <strong>Phase 2 as a testing phase</strong> — identify the best ad set and creative before scaling in Phase 3.</span></li>
+      <li><div class="rec-num">03</div><span><strong>Build &amp; test the landing page</strong> before Phase 3 begins — mobile speed directly affects lead quality.</span></li>
+      <li><div class="rec-num">04</div><span><strong>Respond to all leads within 1 hour</strong> — B2B leads go cold fast. Assign a dedicated person for follow-up.</span></li>
+      <li><div class="rec-num">05</div><span>If <strong>Cost Per Lead drops below &#8377;100</strong> in Phase 3, increase daily budget to &#8377;1,500 to scale results.</span></li>
+    </ul>
+  </div>
+
+  <div class="pg-footer">
+    Confidential — Prepared for Kailash Paper Conversion Pvt. Ltd. &nbsp;|&nbsp; kailashpaper.com &nbsp;|&nbsp; 1800 889 4101 &nbsp;|&nbsp; May 2026
+  </div>
+</div>
+
+</body>
+</html>
