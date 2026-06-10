@@ -28,31 +28,40 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,12,12,.97);backdrop-fil
 .nav-brand{font-family:var(--serif);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--white);text-decoration:none}
 .nav-brand span{color:var(--coral)}
 .nav-meta{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.nav-pill{background:var(--coral);color:var(--white);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:2px}
+.nav-pill{background:var(--coral);color:var(--white);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:2px;white-space:nowrap}
 @media(max-width:700px){.nav-meta{display:none}}
+@media(max-width:480px){nav{padding:0 16px;height:54px}}
 
 /* HERO */
 .hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:88vh;border-bottom:1px solid var(--rule)}
-@media(max-width:900px){.hero{grid-template-columns:1fr}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto}}
 .hero-l{padding:72px 48px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--rule)}
+@media(max-width:900px){.hero-l{border-right:none;border-bottom:1px solid var(--rule)}}
+@media(max-width:480px){.hero-l{padding:40px 20px}}
 .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:28px}
 .hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,82px);font-weight:900;line-height:.93;letter-spacing:-.02em}
 .hero-title em{font-style:normal;color:var(--coral)}
 .hero-desc{font-size:14px;font-weight:300;color:var(--light);max-width:460px;margin-top:28px;line-height:1.85}
 .score-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);margin-top:56px;border:1px solid var(--rule)}
+@media(max-width:480px){.score-bar{grid-template-columns:repeat(2,1fr);margin-top:32px}}
 .score-cell{background:var(--ink2);padding:22px 20px}
+@media(max-width:480px){.score-cell{padding:16px 14px}}
 .score-n{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+@media(max-width:480px){.score-n{font-size:24px}}
 .score-l{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 .score-good{color:var(--green)}
 .score-warn{color:var(--amber)}
 .score-bad{color:var(--red)}
 
 .hero-r{background:var(--ink2);padding:72px 48px;display:flex;flex-direction:column;gap:0;position:relative;overflow:hidden}
+@media(max-width:480px){.hero-r{padding:32px 20px}}
 .hero-r::before{content:'AUDIT';position:absolute;bottom:-20px;right:-10px;font-family:var(--serif);font-size:160px;font-weight:900;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
 .acc-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:24px}
 .acc-row{display:flex;gap:16px;border-top:1px solid var(--rule);padding:14px 0}
+@media(max-width:480px){.acc-row{flex-direction:column;gap:4px}}
 .acc-row:last-child{border-bottom:1px solid var(--rule)}
 .acc-k{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:140px;padding-top:2px;flex-shrink:0}
+@media(max-width:480px){.acc-k{min-width:unset}}
 .acc-v{font-size:13.5px;font-weight:500;color:var(--white);line-height:1.5}
 .acc-v.good{color:var(--green)}
 .acc-v.warn{color:var(--amber)}
@@ -61,36 +70,53 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,12,12,.97);backdrop-fil
 /* SECTION */
 .sec{border-bottom:1px solid var(--rule)}
 .sec-hdr{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--rule)}
-@media(max-width:700px){.sec-hdr{grid-template-columns:80px 1fr}}
+@media(max-width:700px){.sec-hdr{grid-template-columns:70px 1fr}}
 .sec-num-box{padding:36px 28px;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center}
+@media(max-width:480px){.sec-num-box{padding:20px 14px}}
 .sec-num-big{font-family:var(--serif);font-size:58px;font-weight:900;color:var(--rule2);line-height:1}
+@media(max-width:480px){.sec-num-big{font-size:36px}}
 .sec-num-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-top:4px}
+@media(max-width:480px){.sec-num-lbl{display:none}}
 .sec-ttl-wrap{padding:36px 48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+@media(max-width:700px){.sec-ttl-wrap{padding:20px 20px}}
 .sec-ttl{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.15}
+@media(max-width:480px){.sec-ttl{font-size:20px}}
 .sec-ttl em{font-style:normal;color:var(--coral)}
 .status-pill{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:2px}
 .pill-bad{background:var(--red-bg);color:var(--red);border:1px solid var(--red)}
 .pill-warn{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber)}
 .pill-good{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
 .sec-body{padding:48px}
-@media(max-width:700px){.sec-body{padding:24px}}
+@media(max-width:700px){.sec-body{padding:20px}}
 
 /* AUDIT ITEMS */
 .audit-list{display:flex;flex-direction:column;gap:2px;background:var(--rule);border:1px solid var(--rule);margin-bottom:28px}
 .audit-item{display:grid;grid-template-columns:52px 1fr auto;align-items:stretch;background:var(--ink2)}
+@media(max-width:600px){.audit-item{grid-template-columns:40px 1fr}}
 .audit-icon{display:flex;align-items:center;justify-content:center;font-size:18px;border-right:1px solid var(--rule);padding:20px 0;background:var(--ink3)}
+@media(max-width:600px){.audit-icon{font-size:14px;padding:16px 0}}
 .audit-content{padding:18px 24px}
+@media(max-width:480px){.audit-content{padding:14px 14px}}
 .audit-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;line-height:1.3}
+@media(max-width:480px){.audit-title{font-size:13px}}
 .audit-desc{font-size:13px;color:var(--light);line-height:1.65}
+@media(max-width:480px){.audit-desc{font-size:12px}}
 .audit-fix{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:20px 20px 20px 0;color:var(--muted);white-space:nowrap;display:flex;align-items:center}
+@media(max-width:600px){.audit-fix{display:none}}
 .fix-good{color:var(--green)}
 .fix-warn{color:var(--amber)}
 .fix-bad{color:var(--red)}
 
+/* TABLE WRAPPER — horizontal scroll on mobile */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:28px}
+.table-wrap table{margin-bottom:0;min-width:560px}
+
 /* BETTER TABLE */
 .vs-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);font-size:13.5px;margin-bottom:28px}
+@media(max-width:700px){.vs-table{font-size:12px}}
 .vs-table thead{background:var(--ink3)}
 .vs-table thead th{padding:14px 18px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-right:1px solid var(--rule)}
+@media(max-width:700px){.vs-table thead th{padding:10px 12px;font-size:9px}}
 .vs-table thead th:first-child{color:var(--red)}
 .vs-table thead th:nth-child(2){color:var(--green)}
 .vs-table thead th:last-child{color:var(--coral);border-right:none}
@@ -98,6 +124,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,12,12,.97);backdrop-fil
 .vs-table tbody tr:nth-child(even){background:var(--ink2)}
 .vs-table tbody tr:nth-child(odd){background:var(--ink)}
 .vs-table td{padding:16px 18px;color:var(--light);border-right:1px solid var(--rule);vertical-align:top;line-height:1.6}
+@media(max-width:700px){.vs-table td{padding:12px 12px}}
 .vs-table td:last-child{border-right:none}
 .vs-table td.now{color:#ff8a8a}
 .vs-table td.better{color:#7de0a8}
@@ -105,8 +132,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,12,12,.97);backdrop-fil
 
 /* AUDIENCE CARDS */
 .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:28px}
-@media(max-width:800px){.aud-grid{grid-template-columns:1fr}}
+@media(max-width:800px){.aud-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.aud-grid{grid-template-columns:1fr}}
 .aud-card{background:var(--ink2);padding:28px}
+@media(max-width:480px){.aud-card{padding:20px 16px}}
 .aud-badge{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:3px 10px;border-radius:2px;display:inline-block;margin-bottom:14px}
 .badge-ca{background:var(--coral-bg);color:var(--coral);border:1px solid var(--coral-d)}
 .badge-lal{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
@@ -118,13 +147,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,12,12,.97);backdrop-fil
 
 /* LOCATION TABLE */
 .loc-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);font-size:13.5px;margin-bottom:28px}
+@media(max-width:700px){.loc-table{font-size:12px}}
 .loc-table thead{background:var(--coral)}
 .loc-table thead th{padding:13px 18px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--white);font-weight:500;border-right:1px solid rgba(255,255,255,.18)}
+@media(max-width:700px){.loc-table thead th{padding:10px 12px;font-size:9px}}
 .loc-table thead th:last-child{border-right:none}
 .loc-table tbody tr{border-top:1px solid var(--rule)}
 .loc-table tbody tr:nth-child(even){background:var(--ink2)}
 .loc-table tbody tr:nth-child(odd){background:var(--ink)}
 .loc-table td{padding:16px 18px;color:var(--light);border-right:1px solid var(--rule);vertical-align:top;line-height:1.6}
+@media(max-width:700px){.loc-table td{padding:12px 12px}}
 .loc-table td:last-child{border-right:none}
 .loc-table td:first-child{color:var(--white);font-weight:600}
 .tier-1{color:var(--green)!important}
@@ -142,34 +174,44 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,12,12,.97);backdrop-fil
 
 /* COLUMNS */
 .col2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
-@media(max-width:700px){.col2{grid-template-columns:1fr}}
+@media(max-width:700px){.col2{grid-template-columns:1fr;gap:16px}}
 .info-card{background:var(--ink2);border:1px solid var(--rule);padding:28px}
+@media(max-width:480px){.info-card{padding:18px 16px}}
 .ic-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
 .ic-val{font-size:14px;color:var(--white);line-height:1.7}
 .ic-val ul{list-style:none;padding:0}
 .ic-val ul li{padding:4px 0 4px 16px;position:relative;color:var(--light);font-size:13.5px}
+@media(max-width:480px){.ic-val ul li{font-size:13px}}
 .ic-val ul li::before{content:'▸';position:absolute;left:0;color:var(--coral);font-size:9px;top:7px}
 
 /* HIGHLIGHT BOX */
 .highlight{background:var(--coral-bg);border:1px solid var(--coral-d);border-radius:3px;padding:24px 28px;margin-bottom:28px}
+@media(max-width:480px){.highlight{padding:18px 16px}}
 .highlight-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
 .highlight p{font-size:14px;color:var(--off);line-height:1.8}
+@media(max-width:480px){.highlight p{font-size:13px}}
 
 /* METRICS ROW */
 .metrics-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:28px}
 @media(max-width:900px){.metrics-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.metrics-row{grid-template-columns:repeat(2,1fr)}}
 .metric-cell{background:var(--ink2);padding:22px 18px}
+@media(max-width:480px){.metric-cell{padding:16px 14px}}
 .metric-n{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1}
+@media(max-width:480px){.metric-n{font-size:20px}}
 .metric-l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 .metric-note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+@media(max-width:480px){.metric-note{font-size:11px}}
 
 /* FOOTER */
 footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items:end;border-top:1px solid var(--rule)}
-@media(max-width:700px){footer{grid-template-columns:1fr;gap:24px}}
+@media(max-width:700px){footer{grid-template-columns:1fr;gap:24px;padding:40px 20px}}
 .footer-brand{font-family:var(--serif);font-size:32px;font-weight:900;line-height:1}
+@media(max-width:480px){.footer-brand{font-size:26px}}
 .footer-brand span{color:var(--coral)}
 .footer-sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 .footer-r{text-align:right}
+@media(max-width:700px){.footer-r{text-align:left}}
 .footer-r p{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.05em;line-height:2.1}
 .footer-r a{color:var(--coral);text-decoration:none}
 ::-webkit-scrollbar{width:5px}
@@ -238,7 +280,7 @@ footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items
       <div class="metric-cell"><div class="metric-n score-warn">₹99–₹137</div><div class="metric-l">CPP Range</div><div class="metric-note">Should be ₹60–₹80 with proper setup</div></div>
     </div>
     <p style="font-size:13px;color:var(--muted);margin-bottom:28px">Top 5 campaigns by purchase volume from the account:</p>
-    <table class="loc-table">
+    <div class="table-wrap"><table class="loc-table">
       <thead><tr><th>Campaign</th><th>Purchases</th><th>ROAS</th><th>CPP</th><th>Budget</th><th>Verdict</th></tr></thead>
       <tbody>
         <tr><td>25+ IB Women | All Products</td><td class="tier-1">2,077</td><td>11.49x</td><td>₹99.27</td><td>₹1,000/day</td><td><span class="tag">Scale</span></td></tr>
@@ -247,7 +289,7 @@ footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items
         <tr><td>AI Video HRSim | Women 24+</td><td>447</td><td>7.87x</td><td>₹105.41</td><td>₹750/day</td><td><span class="tag">Review Creative</span></td></tr>
         <tr><td>Video Camp. Women 23+</td><td>332</td><td>10.64x</td><td>₹119.61</td><td>₹1,500/day</td><td><span class="tag">Optimise</span></td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </section>
 
@@ -333,7 +375,7 @@ footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items
     </div>
   </div>
   <div class="sec-body">
-    <table class="vs-table">
+    <div class="table-wrap"><table class="vs-table">
       <thead><tr><th>What's Happening Now</th><th>What We Will Do</th><th>Expected Impact</th></tr></thead>
       <tbody>
         <tr><td class="now">Broad interest targeting only</td><td class="better">Custom Audiences + Lookalike Audiences layered on top of interests</td><td class="result">CPP drops 30–50%</td></tr>
@@ -347,7 +389,7 @@ footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items
         <tr><td class="now">ROAS varies 7x to 14x with no action taken</td><td class="better">Weekly optimisation — scale winners, pause losers within 7 days</td><td class="result">Floor ROAS rises consistently</td></tr>
         <tr><td class="now">No A/B testing framework</td><td class="better">Structured creative A/B testing — 2 creatives per ad set, rotate every 2 weeks</td><td class="result">CTR improves, CPP falls over time</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </section>
 
@@ -489,7 +531,7 @@ footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items
     </div>
   </div>
   <div class="sec-body">
-    <table class="loc-table">
+    <div class="table-wrap"><table class="loc-table">
       <thead><tr><th>Campaign</th><th>Funnel Stage</th><th>Audience</th><th>Geography</th><th>Daily Budget</th><th>Objective</th></tr></thead>
       <tbody>
         <tr><td><strong>Campaign 1</strong><br>Lookalike Cold Traffic</td><td>TOFU</td><td>1% LAL — Past Purchasers + 1% LAL — Pixel Buyers</td><td>Delhi NCR, Mumbai, Bengaluru, Hyderabad, Pune</td><td>₹600–800</td><td>Purchase</td></tr>
@@ -497,7 +539,7 @@ footer{padding:56px 48px;display:grid;grid-template-columns:1fr auto;align-items
         <tr><td><strong>Campaign 3</strong><br>Instagram Warm Retargeting</td><td>MOFU</td><td>IG Engagers (60d) + Video Viewers (25%+, 90d) + Website Visitors (30d)</td><td>Pan India</td><td>₹300–400</td><td>Purchase / Add to Cart</td></tr>
         <tr><td><strong>Campaign 4</strong><br>Hot Retargeting + Customer List</td><td>BOFU</td><td>Add-to-cart abandoners (7d) + Checkout abandoners (7d) + Past buyers (new arrivals)</td><td>Pan India</td><td>₹200–300</td><td>Purchase</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p style="font-size:13px;color:var(--muted);margin-top:8px">Total: ₹1,500–2,100/day structured across a proper 4-stage funnel vs the current single-stage broad targeting approach.</p>
   </div>
 </section>
