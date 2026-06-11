@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ovo Recipe — Ovolite</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #1b45c7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.video-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.video-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 989px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 749px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  h1 { font-size: 25px; margin-bottom: 24px; }
+  .container { padding: 30px 15px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Ovo Recipe</h1>
+  <div class="grid">
+
+    <div class="video-item">
+      <video playsinline autoplay loop muted preload="metadata"
+        poster="//ovolite.com/cdn/shop/files/preview_images/3a9b317053ab400d9f77b6c1624fed88.thumbnail.0000000000_small.jpg?v=1765967854">
+        <source src="//ovolite.com/cdn/shop/videos/c/vp/3a9b317053ab400d9f77b6c1624fed88/3a9b317053ab400d9f77b6c1624fed88.HD-1080p-7.2Mbps-65341380.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="video-item">
+      <video playsinline autoplay loop muted preload="metadata"
+        poster="//ovolite.com/cdn/shop/files/preview_images/8232d4dc35d949f883e91d69f4d19225.thumbnail.0000000000_small.jpg?v=1765967849">
+        <source src="//ovolite.com/cdn/shop/videos/c/vp/8232d4dc35d949f883e91d69f4d19225/8232d4dc35d949f883e91d69f4d19225.HD-1080p-7.2Mbps-65341379.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="video-item">
+      <video playsinline autoplay loop muted preload="metadata"
+        poster="//ovolite.com/cdn/shop/files/preview_images/386d77375869425aa17a981ad68901f7.thumbnail.0000000000_small.jpg?v=1765967814">
+        <source src="//ovolite.com/cdn/shop/videos/c/vp/386d77375869425aa17a981ad68901f7/386d77375869425aa17a981ad68901f7.HD-1080p-7.2Mbps-65341384.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="video-item">
+      <video playsinline autoplay loop muted preload="metadata"
+        poster="//ovolite.com/cdn/shop/files/preview_images/4363ac953b044090bda5823a67da5c91.thumbnail.0000000000_small.jpg?v=1765967812">
+        <source src="//ovolite.com/cdn/shop/videos/c/vp/4363ac953b044090bda5823a67da5c91/4363ac953b044090bda5823a67da5c91.HD-1080p-7.2Mbps-65341382.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="video-item">
+      <video playsinline autoplay loop muted preload="metadata"
+        poster="//ovolite.com/cdn/shop/files/preview_images/aeb3140cf11145f4bb68dac787f6cbbe.thumbnail.0000000000_small.jpg?v=1765967782">
+        <source src="//ovolite.com/cdn/shop/videos/c/vp/aeb3140cf11145f4bb68dac787f6cbbe/aeb3140cf11145f4bb68dac787f6cbbe.HD-1080p-7.2Mbps-65341378.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="video-item">
+      <video playsinline autoplay loop muted preload="metadata"
+        poster="//ovolite.com/cdn/shop/files/preview_images/598f7cfb081445499741644cf0ebb8b0.thumbnail.0000000000_small.jpg?v=1765967780">
+        <source src="//ovolite.com/cdn/shop/videos/c/vp/598f7cfb081445499741644cf0ebb8b0/598f7cfb081445499741644cf0ebb8b0.HD-1080p-7.2Mbps-65341380.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
